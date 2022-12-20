@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 import { useCallback, useState, useRef } from 'react';
 import './App.css';
 
@@ -107,7 +108,54 @@ const surveyJson = {
       "showLabel": true,
       "colCount": 2,
       "multiSelect": false
-    }], 
+    }]
+  },
+  {
+    elements: [{
+      "name": "estampas-preferidas",
+      "title": "QUAIS ESTAMPAS VOCÊ MAIS GOSTA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/2/Imagem1.jpg",
+          "text": "Listra e xadrez, paisagens naturais, estampas coloridas e alegres"
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/2/Imagem2.jpg",
+          "text": "Feitas com a trama do tecido como jacquards e tweed. Elegância em primeiro lugar"
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/2/Imagem3.jpg",
+          "text": "Amo estampas de flor como outras delicadas e femininas, bolinhas"
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/2/Imagem4.jpg",
+          "text": "Animal Print é a minha cara. Outras estampas gráficas, com detalhes que chamem atenção, também me interessam"
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/2/Imagem5.jpg",
+          "text": "Uso muito preto em contraste com branco ou com cores chamativas"
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/2/Imagem6.jpg",
+          "text": "Risca de giz, espinha de peixe e xadrez. Tudo bem tradicional"
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/2/Imagem7.jpg",
+          "text": "Gosto de estampas que são diferentes do usual, étnicas e excêntricas como chinesas. Adoro misturar estampas"
+        }
+      ],
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }],
   }],
   showQuestionNumbers: "on",
   pageNextText: "Seguinte",
