@@ -105,6 +105,7 @@ const surveyJson = {
           "text": "Mistura de cores diferentes e inusitadas"
         }
       ],
+      isRequired: true,
       "showLabel": true,
       "colCount": 2,
       "multiSelect": false
@@ -152,6 +153,327 @@ const surveyJson = {
           "text": "Gosto de estampas que são diferentes do usual, étnicas e excêntricas como chinesas. Adoro misturar estampas"
         }
       ],
+      isRequired: true,
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }],
+  }, {
+    elements: [{
+      name: "detalhes-adora",
+      title: "QUAIS DETALHES VOCÊ ADORA?",
+      type: "radiogroup",
+      choices: [
+        { value: 7, text: "Uso detalhes diferentes do padrão" },
+        { value: 6, text: "Prefiro detalhes discretos" },
+        { value: 5, text: "Preciso de poucos detalhes porém grandes, para criar um efeito marcante" },
+        { value: 4, text: "Uso decotes, fendas e outros detalhes que valorizam o meu corpo" },
+        { value: 3, text: "Adoro detalhes femininos como babados, rendas, pregas e outros" },
+        { value: 2, text: "Gosto de detalhes sofisticados que dão um ar refinado para a roupa" },
+        { value: 1, text: "Gosto de roupas sem detalhes. Sou muito básica para vestir" }
+      ],
+      isRequired: true
+    }]
+  }, {
+    elements: [{
+      name: "estilo-preferido",
+      title: "QUAL O SEU ESTILO DE ROUPA PREFERIDO?",
+      type: "radiogroup",
+      choices: [
+        { value: 7, text: "Gosto de roupas diferentes e pronto!" },
+        { value: 6, text: "Tenho muitas roupas formais e tradicionais. Elas são atemporais" },
+        { value: 5, text: "Minhas roupas são bastante urbanas e sempre tenho peças impactantes" },
+        { value: 4, text: "Minhas roupas são sensuais na medida certa" },
+        { value: 3, text: "Minhas roupas são delicadas, femininas e românticas" },
+        { value: 2, text: "Adoro peças clean, clássicas mas sofisticadas. Menos é mais!" },
+        { value: 1, text: "Gosto do básico, confortável, prático e às vezes com uma pegada rústica" }
+      ],
+      isRequired: true
+    }]
+  }, {
+    elements: [{
+      name: "compras",
+      title: "COMO GOSTA DE FAZER SUAS COMPRAS?",
+      type: "radiogroup",
+      choices: [
+        { value: 7, text: "Adoro lugares alternativos, brechós, feiras de artesanatos, pois adoro o incomum" },
+        { value: 6, text: "Faço compras planejadas, gosto de qualidade e não ligo pra moda" },
+        { value: 5, text: "Compro o que está na vitrines, nas novelas, nas revistas, adoro lançamentos" },
+        { value: 4, text: "Adoro comprar peças que valorizam o meu corpo, gosto de tendência também" },
+        { value: 3, text: "Adoro ir as compras, compro por prazer e adoro tudo que tenha detalhes delicados" },
+        { value: 2, text: "Compro pensando em atualizar o que eu já tenho, gosto de qualidade e atualidade" },
+        { value: 1, text: "Compro quando preciso, não gosto de perder tempo, gosto de facilidades, detesto provar muitas roupas" }
+      ],
+      isRequired: true
+    }]
+  }, {
+    elements: [{
+      name: "tecidos",
+      title: "VOCÊ ESCOLHE CERTOS TECIDOS PORQUE ELES",
+      type: "radiogroup",
+      choices: [
+        { value: 7, text: "São interessantes, diferentes" },
+        { value: 6, text: "São de qualidade" },
+        { value: 5, text: "São atuais, estão na moda" },
+        { value: 4, text: "São perfeitos no corpo" },
+        { value: 3, text: "São delicados" },
+        { value: 2, text: "São sofisticados" },
+        { value: 1, text: "São fáceis de cuidar" }
+      ],
+      isRequired: true
+    }]
+  }, {
+    elements: [{
+      name: "sapatos",
+      title: "COMO SÃO SEUS SAPATOS PREFERIDOS?",
+      type: "radiogroup",
+      choices: [
+        { value: 7, text: "São essencialmente diferentes" },
+        { value: 6, text: "São essencialmente duráveis" },
+        { value: 5, text: "São essencialmente lançamentos" },
+        { value: 4, text: "São essencialmente perfeitos para meu corpo" },
+        { value: 3, text: "São essencialmente delicados" },
+        { value: 2, text: "São essencialmente sofisticados" },
+        { value: 1, text: "São essencialmente confortáveis" }
+      ],
+      isRequired: true
+    }]
+   }, {
+    elements: [{
+      "name": "calcas-preferidas",
+      "title": "QUAL VOCÊ ADORA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/3/Imagem1.png",
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/3/Imagem2.jpg",
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/3/Imagem3.png",
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/3/Imagem4.jpg",
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/3/Imagem5.jpg",
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/3/Imagem6.jpg",
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/3/Imagem7.jpg",
+        }
+      ],
+      isRequired: true,
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }]
+  }, {
+    elements: [{
+      "name": "sapatos-preferidas",
+      "title": "QUAL VOCÊ ADORA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/4/Imagem1.jpg",
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/4/Imagem2.png",
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/4/Imagem3.jpg",
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/4/Imagem4.png",
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/4/Imagem5.png",
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/4/Imagem6.jpg",
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/4/Imagem7.jpg",
+        }
+      ],
+      isRequired: true,
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }]
+  }, {
+    elements: [{
+      "name": "saias-preferidas",
+      "title": "QUAL VOCÊ ADORA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/6/Imagem1.jpg",
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/6/Imagem2.jpg",
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/6/Imagem3.jpg",
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/6/Imagem4.jpg",
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/6/Imagem5.jpg",
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/6/Imagem6.png",
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/6/Imagem7.jpg",
+        }
+      ],
+      isRequired: true,
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }]
+  }, {
+    elements: [{
+      "name": "bolsas-preferidas",
+      "title": "QUAL VOCÊ ADORA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/7/Imagem1.jpg",
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/7/Imagem2.jpg",
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/7/Imagem3.jpg",
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/7/Imagem4.jpg",
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/7/Imagem5.png",
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/7/Imagem6.jpg",
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/7/Imagem7.jpg",
+        }
+      ],
+      isRequired: true,
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }]
+  }, {
+    elements: [{
+      "name": "oculos-preferidas",
+      "title": "QUAL VOCÊ ADORA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/8/Imagem1.jpg",
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/8/Imagem2.jpg",
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/8/Imagem3.png",
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/8/Imagem4.jpg",
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/8/Imagem5.jpg",
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/8/Imagem6.jpg",
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/8/Imagem7.jpg",
+        }
+      ],
+      isRequired: true,
+      "showLabel": true,
+      "colCount": 2,
+      "multiSelect": false
+    }]
+  }, {
+    elements: [{
+      "name": "acessorios-preferidas",
+      "title": "QUAL VOCÊ ADORA?",
+      "type": "imagepicker",
+      "choices": [
+        {
+          "value": "1",
+          "imageLink": "/images/9/Imagem1.png",
+        },
+        {
+          "value": "2",
+          "imageLink": "/images/9/Imagem2.png",
+        },
+        {
+          "value": "3",
+          "imageLink": "/images/9/Imagem3.png",
+        },
+        {
+          "value": "4",
+          "imageLink": "/images/9/Imagem4.png",
+        },
+        {
+          "value": "5",
+          "imageLink": "/images/9/Imagem5.png",
+        },
+        {
+          "value": "6",
+          "imageLink": "/images/9/Imagem6.png",
+        },
+        {
+          "value": "7",
+          "imageLink": "/images/9/Imagem7.png",
+        }
+      ],
+      isRequired: true,
       "showLabel": true,
       "colCount": 2,
       "multiSelect": false
