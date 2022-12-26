@@ -1,11 +1,11 @@
 import './App.css';
-import 'survey-core/modern.min.css';
+import 'survey-core/defaultV2.min.css';
 import { React, useCallback, useState, useRef } from 'react';
 import { surveyJson } from './json.js';
 import { StylesManager, Model } from 'survey-core';
 import { Survey } from 'survey-react-ui';
 
-StylesManager.applyTheme("modern");
+StylesManager.applyTheme("defaultV2");
 
 function App() {
   const survey = useRef(new Model(surveyJson)).current;

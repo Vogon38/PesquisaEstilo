@@ -476,6 +476,6 @@ export const surveyJson = {
     showPrevButton: true,
     firstPageIsStarted: true,
     startSurveyText: "Iniciar",
-    completedHtml: "Obrigada",
+    completedHtml: "Obrigada!",
     showPreviewBeforeComplete: "showAnsweredQuestions"
   };
