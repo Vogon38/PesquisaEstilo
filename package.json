@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "jquery": "3.5.1",
     "json": "^11.0.0",
     "react": "latest",
     "react-dom": "latest",
@@ -14,8 +15,14 @@
     "react-showdown": "^2.3.1",
     "showdown": "^2.1.0",
     "survey-core": "latest",
+    "survey-pdf": "latest",
     "survey-react-ui": "latest",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "plotly.js": "1.57.1",
+    "survey-analytics": "latest",
+    "xlsx": "0.18.5",
+    "jspdf": "1.5.3",
+    "jspdf-autotable": "3.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
