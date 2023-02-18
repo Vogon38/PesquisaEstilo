@@ -1,84 +1,75 @@
+import React, { useState, useEffect } from 'react';
+import * as Survey from 'survey-react';
+import 'survey-react/survey.css';
+import Chart from 'chart.js';
 import './App.css';
-import { useState, useCallback } from 'react';
-import { StylesManager, Model } from 'survey-core';
-import { Survey } from 'survey-react-ui';
-import { Doughnut } from 'react-chartjs-2';
-import { surveyJson } from './json';
-
-StylesManager.applyTheme("modern");
+import { surveyJson } from './json.js';
 
 function App() {
   const [surveyResults, setSurveyResults] = useState(null);
   const [chartData, setChartData] = useState(null);
 
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      position: 'bottom'
+  useEffect(() => {
+    if (surveyResults) {
+      const choices = surveyResults.questions[0].choices;
+      const chartLabels = choices.map(choice => choice.text);
+      const chartData = choices.map(choice => surveyResults.data[0][choice.value]);
+
+      setChartData({
+        labels: chartLabels,
+        datasets: [{
+          label: 'Responses',
+          data: chartData,
+          backgroundColor: 'rgba(75,192,192,0.2)',
+          borderColor: 'rgba(75,192,192,1)',
+          borderWidth: 1
+        }]
+      });
     }
-  };
+  }, [surveyResults]);
 
-  const calculateChartData = (results) => {
-    const data = {
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0
-    };
-    for (const key in results) {
-      const answer = results[key];
-      data[answer] += 1;
-    }
-    return {
-      labels: Object.keys(data),
-      datasets: [
-        {
-          data: Object.values(data),
-          backgroundColor: [
-            '#36A2EB',
-            '#FF6384',
-            '#FFCE56',
-            '#8e5ea2',
-            '#3cba9f'
-          ]
-        }
-      ]
-    };
-  };
-
-  const displayResults = useCallback((sender) => {
-    setSurveyResults(sender.data);
-    setChartData(calculateChartData(sender.data));
-  }, []);
-
-  const renderChart = () => {
+  useEffect(() => {
     if (chartData) {
-      return (
-        <div style={{ width: '300px', height: '300px' }}>
-          <Doughnut data={chartData} options={chartOptions} />
-        </div>
-      );
-    } else {
-      return null;
+      const ctx = document.getElementById('survey-results-chart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          },
+          tooltips: {
+            callbacks: {
+              label: (tooltipItem, data) => {
+                const value = data.datasets[0].data[tooltipItem.index];
+                return `${value} responses`;
+              }
+            }
+          }
+        }
+      });
     }
+  }, [chartData]);
+
+  const onComplete = (survey, options) => {
+    setSurveyResults(survey.data);
   };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Survey
-          model={new Model(surveyJson)}
-          onComplete={displayResults}
-        />
-        {surveyResults && (
-          <pre>{JSON.stringify(surveyResults, null, 2)}</pre>
-        )}
-        {renderChart()}
-      </header>
+      <div className="survey-container">
+        <Survey.Survey json={surveyJson} onComplete={onComplete} />
+      </div>
+      {chartData && (
+        <div className="chart-container">
+          <h2>Survey Results</h2>
+          <canvas id="survey-results-chart"></canvas>
+        </div>
+      )}
     </div>
   );
 }
