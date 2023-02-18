@@ -1,0 +1,10 @@
+    // if (surveyResults) {
+    //   const surveyQuestions = survey.getAllQuestions();
+    //   const chartLabels = surveyQuestions.map(q => q.title);
+    //   const chartData = surveyQuestions.map(q => {
+    //     if (q.getType() === 'radiogroup' || q.getType() === 'checkbox') {
+    //       return q.choices.map(c => surveyResults[q.name] ? surveyResults[q.name][c.value] : 0).reduce((a, b) => a + b, 0);
+    //     } else {
+    //       return surveyResults[q.name];
+    //     }
+    //   });

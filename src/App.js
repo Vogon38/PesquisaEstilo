@@ -1,26 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Survey } from 'survey-react-ui';
-import Chart from 'chart.js/auto';
+import { Chart } from 'chart.js/auto';
 import 'survey-core/defaultV2.min.css';
 import './App.css';
+import { Model } from 'survey-core';
 import { surveyJson } from './json.js';
 
 function App() {
   const survey = useRef(new Model(surveyJson)).current;
   const [surveyResults, setSurveyResults] = useState(null);
   const [chartData, setChartData] = useState(null);
-  const displayResults = useCallback((sender) => {
-    setSurveyResults(JSON.stringify(sender.data, null, 4));
-    setIsSurveyCompleted(true);
+
+  useEffect(() => {
+    // Load Chart.js library
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup Chart.js library
+      document.body.removeChild(script);
+    };
   }, []);
 
-  survey.onComplete.add(displayResults);
+  survey.onComplete.add((sender, options) => {
+    console.log(JSON.stringify(sender.data, null, 3));
+    setSurveyResults(survey.data);
+  });
 
   useEffect(() => {
     if (surveyResults) {
-      const choices = surveyResults.questions[0].choices;
-      const chartLabels = choices.map(choice => choice.text);
-      const chartData = choices.map(choice => surveyResults.data[0][choice.value]);
+      const surveyQuestions = survey.getAllQuestions();
+      const chartLabels = surveyQuestions.map(q => q.title);
+      const chartData = surveyQuestions.map(q => {
+        if (q.getType() === 'radiogroup' || q.getType() === 'checkbox') {
+          return q.choices.map(c => surveyResults[q.name] ? surveyResults[q.name][c.value] : 0).reduce((a, b) => a + b, 0);
+        } else {
+          return surveyResults[q.name];
+        }
+      });
 
       setChartData({
         labels: chartLabels,
@@ -43,17 +62,17 @@ function App() {
         data: chartData,
         options: {
           scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
+            y: {
+              beginAtZero: true
+            }
           },
-          tooltips: {
-            callbacks: {
-              label: (tooltipItem, data) => {
-                const value = data.datasets[0].data[tooltipItem.index];
-                return `${value} responses`;
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: (tooltipItem, data) => {
+                  const value = data.datasets[0].data[tooltipItem.index];
+                  return `${value} responses`;
+                }
               }
             }
           }
@@ -68,14 +87,12 @@ function App() {
 
   return (
     <>
-      <Survey model={survey} id="surveyContainer" />
+      <Survey model={survey} onComplete={onComplete} />
       {chartData && (
-        isSurveyCompleted && (
-          <div className="chart-container">
-            <h2>Survey Results</h2>
-            <canvas id="survey-results-chart"></canvas>
-          </div>
-        )
+        <div className="chart-container">
+          <h2>Survey Results</h2>
+          <canvas id="survey-results-chart"></canvas>
+        </div>
       )}
     </>
   );
