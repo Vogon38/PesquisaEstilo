@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import * as Survey from 'survey-react';
-import 'survey-react/survey.css';
-import Chart from 'chart.js';
+import { Survey } from 'survey-react-ui';
+import Chart from 'chart.js/auto';
+import 'survey-core/defaultV2.min.css';
 import './App.css';
 import { surveyJson } from './json.js';
 
 function App() {
+  const survey = useRef(new Model(surveyJson)).current;
   const [surveyResults, setSurveyResults] = useState(null);
   const [chartData, setChartData] = useState(null);
+  const displayResults = useCallback((sender) => {
+    setSurveyResults(JSON.stringify(sender.data, null, 4));
+    setIsSurveyCompleted(true);
+  }, []);
+
+  survey.onComplete.add(displayResults);
 
   useEffect(() => {
     if (surveyResults) {
@@ -60,17 +67,17 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="survey-container">
-        <Survey.Survey json={surveyJson} onComplete={onComplete} />
-      </div>
+    <>
+      <Survey model={survey} id="surveyContainer" />
       {chartData && (
-        <div className="chart-container">
-          <h2>Survey Results</h2>
-          <canvas id="survey-results-chart"></canvas>
-        </div>
+        isSurveyCompleted && (
+          <div className="chart-container">
+            <h2>Survey Results</h2>
+            <canvas id="survey-results-chart"></canvas>
+          </div>
+        )
       )}
-    </div>
+    </>
   );
 }
 

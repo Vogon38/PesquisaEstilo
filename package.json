@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^17.0.52",
     "@types/react-dom": "^17.0.18",
+    "ajv": "^8.12.0",
+    "chart.js": "^4.2.1",
     "firebase": "4.10.0",
     "jquery": "3.5.1",
     "json": "^11.0.0",
@@ -35,12 +37,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -52,19 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This example is used in the following help topic: [Create a Multi-Page Survey](https://surveyjs.io/Documentation/Library?id=design-survey-create-a-multi-page-survey). It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vogon38/pesquisa-estilo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Vogon38/pesquisa-estilo/issues"
-  },
-  "homepage": "https://github.com/Vogon38/pesquisa-estilo#readme"
+  }
 }
