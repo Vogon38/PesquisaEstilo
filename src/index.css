@@ -22,3 +22,10 @@ code {
 .sd-imagepicker span {
   margin-bottom: 10px;
 }
+
+.chart-container canvas {
+  width: 100%;
+  height: 50vh;
+  max-height: 500px; /* or any other value you prefer */
+}
+

@@ -6,6 +6,9 @@ import './App.css';
 import { Model } from 'survey-core';
 import { surveyJson } from './json.js';
 
+const chartLabels = ["Esportivo", "Elegante", "Romântico", "Sexy", "Dramático", "Tradicional", "Criativo"];
+const chartColors = ["#4dc9f6", "#f67019", "#f53794", "#537bc4", "#acc236", "#166a8f", "#00a950"];
+
 function App() {
   const survey = useRef(new Model(surveyJson)).current;
   const [surveyResults, setSurveyResults] = useState(null);
@@ -31,47 +34,59 @@ function App() {
 
   useEffect(() => {
     if (surveyResults) {
-      const surveyQuestions = survey.getAllQuestions();
-      const chartLabels = surveyQuestions.map(q => q.title);
-      const chartData = surveyQuestions.map(q => {
-        if (q.getType() === 'radiogroup' || q.getType() === 'checkbox') {
-          return q.choices.map(c => surveyResults[q.name] ? surveyResults[q.name][c.value] : 0).reduce((a, b) => a + b, 0);
-        } else {
-          return surveyResults[q.name];
+      const chartData = chartLabels.map((label, index) => {
+        let count = 0;
+        for (let questionName in surveyResults) {
+          const value = surveyResults[questionName];
+          if (value === label) {
+            count++;
+          }
         }
+        console.log(`${label}: ${count}`);
+        return {
+          label: label,
+          data: [count],
+          backgroundColor: chartColors[index % chartColors.length],
+          borderColor: chartColors[index % chartColors.length],
+          borderWidth: 1,
+        };
       });
-
+      console.log(chartData);
+  
       setChartData({
-        labels: chartLabels,
-        datasets: [{
-          label: 'Responses',
-          data: chartData,
-          backgroundColor: 'rgba(75,192,192,0.2)',
-          borderColor: 'rgba(75,192,192,1)',
-          borderWidth: 1
-        }]
+        labels: [''],
+        datasets: chartData,
       });
     }
   }, [surveyResults]);
 
   useEffect(() => {
-    if (chartData) {
+    if (chartData && chartData.datasets) {
       const ctx = document.getElementById('survey-results-chart').getContext('2d');
       new Chart(ctx, {
         type: 'bar',
         data: chartData,
         options: {
+          maintainAspectRatio: false, // disable aspect ratio so chart can be responsive
           scales: {
             y: {
-              beginAtZero: true
+              beginAtZero: true,
+              stepSize: 1,
+              precision: 0
             }
           },
           plugins: {
             tooltip: {
               callbacks: {
-                label: (tooltipItem, data) => {
-                  const value = data.datasets[0].data[tooltipItem.index];
-                  return `${value} responses`;
+                label: function (context) {
+                  var label = chartData.labels[context.dataIndex];
+                  var value = context.dataset.data[context.dataIndex];
+                  var count = value + ' response' + (value !== 1 ? 's' : '');
+                  if (context.dataset.hasOwnProperty('datasets')) {
+                    return label + ': ' + count;
+                  } else {
+                    return count;
+                  }
                 }
               }
             }
@@ -79,7 +94,10 @@ function App() {
         }
       });
     }
-  }, [chartData]);
+  }, [chartData]);  
+
+  // console.log(surveyResults);
+  // console.log(chartData);
 
   const onComplete = (survey, options) => {
     setSurveyResults(survey.data);
@@ -90,7 +108,6 @@ function App() {
       <Survey model={survey} onComplete={onComplete} />
       {chartData && (
         <div className="chart-container">
-          <h2>Survey Results</h2>
           <canvas id="survey-results-chart"></canvas>
         </div>
       )}
