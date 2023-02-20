@@ -5,3 +5,8 @@ p {
 .pre-line {
   white-space: pre-line;
 }
+
+.chart-container canvas {
+  width: 100%;
+  height: auto;
+}

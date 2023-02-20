@@ -8,6 +8,9 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^17.0.52",
     "@types/react-dom": "^17.0.18",
+    "ajv": "^8.12.0",
+    "chart.js": "^4.2.1",
+    "firebase": "4.10.0",
     "jquery": "3.5.1",
     "json": "^11.0.0",
     "jspdf": "1.5.3",
@@ -33,12 +36,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
