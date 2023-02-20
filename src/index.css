@@ -29,3 +29,6 @@ code {
   max-height: 500px; /* or any other value you prefer */
 }
 
+.sd-completedpage:before {
+    height: calc(var(--base-unit, 8px));
+}
