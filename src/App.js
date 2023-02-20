@@ -42,7 +42,6 @@ function App() {
             count++;
           }
         }
-        console.log(`${label}: ${count}`);
         return {
           label: label,
           data: [count],
@@ -51,8 +50,6 @@ function App() {
           borderWidth: 1,
         };
       });
-      console.log(chartData);
-  
       setChartData({
         labels: [''],
         datasets: chartData,
@@ -94,10 +91,7 @@ function App() {
         }
       });
     }
-  }, [chartData]);  
-
-  // console.log(surveyResults);
-  // console.log(chartData);
+  }, [chartData]);
 
   const onComplete = (survey, options) => {
     setSurveyResults(survey.data);
