@@ -62,37 +62,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/1/Imagem1.jpg",
-          text: "Esportivo - Primárias e básicas"
+          text: "Primárias e básicas"
         },
         {
           "value": "Elegante",
           "imageLink": "/images/1/Imagem2.jpg",
-          text: "Elegante - Tom sobre tom"
+          text: "Tom sobre tom"
         },
         {
           "value": "Romântico",
           "imageLink": "/images/1/Imagem3.jpg",
-          text: "Romântico - Claras e pastéis"
+          text: "Claras e pastéis"
         },
         {
           "value": "Sexy",
           "imageLink": "/images/1/Imagem4.jpg",
-          text: "Sexy - Fortes e escuras"
+          text: "Fortes e escuras"
         },
         {
           "value": "Dramático",
           "imageLink": "/images/1/Imagem5.jpg",
-          text: "Dramático - Chamativas e contrastantes"
+          text: "Chamativas e contrastantes"
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/1/Imagem6.jpg",
-          text: "Tradicional - Cores Tradicionais"
+          text: "Cores Tradicionais"
         },
         {
           "value": "Criativo",
           "imageLink": "/images/1/Imagem7.jpg",
-          text: "Criativo - Mistura de cores intensas"
+          text: "Mistura de cores intensas"
         }
       ],
       isRequired: true,
@@ -110,37 +110,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/2/Imagem1.jpg",
-          text: "Esportivo - Botânicas e alegres"
+          text: "Botânicas e alegres"
         },
         {
           "value": "Elegante",
           "imageLink": "/images/2/Imagem2.jpg",
-          text: "Elegante - Tweed e jacquards elegantes"
+          text: "Tweed e jacquards elegantes"
         },
         {
           "value": "Romântico",
           "imageLink": "/images/2/Imagem3.jpg",
-          text: "Romântico - Poá e florais delicados"
+          text: "Poá e florais delicados"
         },
         {
           "value": "Sexy",
           "imageLink": "/images/2/Imagem4.jpg",
-          text: "Sexy - Animal Print e logomania chamativas"
+          text: "Animal Print e logomania chamativas"
         },
         {
           "value": "Dramático",
           "imageLink": "/images/2/Imagem5.jpg",
-          text: "Dramático - Contrastantes e diferentes"
+          text: "Contrastantes e diferentes"
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/2/Imagem6.jpg",
-          text: "Tradicional - Listra e xadrez básico"
+          text: "Listra e xadrez básico"
         },
         {
           "value": "Criativo",
           "imageLink": "/images/2/Imagem7.jpg",
-          text: "Criativo - Chinesas e mix de estampas"
+          text: "Chinesas e mix de estampas"
         }
       ],
       isRequired: true,
@@ -237,37 +237,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/3/Imagem1.png",
-          "text": "Esportivo - 1",
+          "text": "1",
         },
         {
           "value": "Elegante",
           "imageLink": "/images/3/Imagem2.jpg",
-          "text": "Elegante - 2",
+          "text": "2",
         },
         {
           "value": "Romântico",
           "imageLink": "/images/3/Imagem3.png",
-          "text": "Romântico - 3",
+          "text": "3",
         },
         {
           "value": "Sexy",
           "imageLink": "/images/3/Imagem4.jpg",
-          "text": "Sexy - 4",
+          "text": "4",
         },
         {
           "value": "Dramático",
           "imageLink": "/images/3/Imagem5.jpg",
-          "text": "Dramático - 5",
+          "text": "5",
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/3/Imagem6.jpg",
-          "text": "Tradicional - 6",
+          "text": "6",
         },
         {
           "value": "Criativo",
           "imageLink": "/images/3/Imagem7.jpg",
-          "text": "Criativo - 7",
+          "text": "7",
         }
       ],
       isRequired: true,
@@ -284,37 +284,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/4/Imagem1.jpg",
-          "text": "Esportivo - 1",
+          "text": "1",
         },
         {
           "value": "Elegante",
           "imageLink": "/images/4/Imagem2.png",
-          "text": "Elegante - 2",
+          "text": "2",
         },
         {
           "value": "Romântico",
           "imageLink": "/images/4/Imagem3.jpg",
-          "text": "Romântico - 3",
+          "text": "3",
         },
         {
           "value": "Sexy",
           "imageLink": "/images/4/Imagem4.png",
-          "text": "Sexy - 4",
+          "text": "4",
         },
         {
           "value": "Dramático",
           "imageLink": "/images/4/Imagem5.png",
-          "text": "Dramático - 5",
+          "text": "5",
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/4/Imagem6.jpg",
-          "text": "Tradicional - 6",
+          "text": "6",
         },
         {
           "value": "Criativo",
           "imageLink": "/images/4/Imagem7.jpg",
-          "text": "Criativo - 7",
+          "text": "7",
         }
       ],
       isRequired: true,
@@ -331,37 +331,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/6/Imagem1.jpg",
-          "text": "Esportivo - 1",
+          "text": "1",
         },
         {
           "value": "Elegante",
           "imageLink": "/images/6/Imagem2.jpg",
-          "text": "Elegante - 2",
+          "text": "2",
         },
         {
           "value": "Romântico",
           "imageLink": "/images/6/Imagem3.jpg",
-          "text": "Romântico - 3",
+          "text": "3",
         },
         {
           "value": "Sexy",
           "imageLink": "/images/6/Imagem4.jpg",
-          "text": "Sexy - 4",
+          "text": "4",
         },
         {
           "value": "Dramático",
           "imageLink": "/images/6/Imagem5.jpg",
-          "text": "Dramático - 5",
+          "text": "5",
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/6/Imagem6.png",
-          "text": "Tradicional - 6",
+          "text": "6",
         },
         {
           "value": "Criativo",
           "imageLink": "/images/6/Imagem7.jpg",
-          "text": "Criativo - 7",
+          "text": "7",
         }
       ],
       isRequired: true,
@@ -378,37 +378,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/7/Imagem1.jpg",
-          "text": "Esportivo - 1",
+          "text": "1",
         },
         {
           "value": "Elegante",
           "imageLink": "/images/7/Imagem2.jpg",
-          "text": "Elegante - 2",
+          "text": "2",
         },
         {
           "value": "Romântico",
           "imageLink": "/images/7/Imagem3.jpg",
-          "text": "Romântico - 3",
+          "text": "3",
         },
         {
           "value": "Sexy",
           "imageLink": "/images/7/Imagem4.jpg",
-          "text": "Sexy - 4",
+          "text": "4",
         },
         {
           "value": "Dramático",
           "imageLink": "/images/7/Imagem5.png",
-          "text": "Dramático - 5",
+          "text": "5",
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/7/Imagem6.jpg",
-          "text": "Tradicional - 6",
+          "text": "6",
         },
         {
           "value": "Criativo",
           "imageLink": "/images/7/Imagem7.jpg",
-          "text": "Criativo - 7",
+          "text": "7",
         }
       ],
       isRequired: true,
@@ -425,37 +425,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/8/Imagem1.jpg",
-          "text": "Esportivo - 1",
+          "text": "1",
         },
         {
           "value": "Elegante",
           "imageLink": "/images/8/Imagem2.jpg",
-          "text": "Elegante - 2",
+          "text": "2",
         },
         {
           "value": "Romântico",
           "imageLink": "/images/8/Imagem3.png",
-          "text": "Romântico - 3",
+          "text": "3",
         },
         {
           "value": "Sexy",
           "imageLink": "/images/8/Imagem4.jpg",
-          "text": "Sexy - 4",
+          "text": "4",
         },
         {
           "value": "Dramático",
           "imageLink": "/images/8/Imagem5.jpg",
-          "text": "Dramático - 5",
+          "text": "5",
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/8/Imagem6.jpg",
-          "text": "Tradicional - 6",
+          "text": "6",
         },
         {
           "value": "Criativo",
           "imageLink": "/images/8/Imagem7.jpg",
-          "text": "Criativo - 7",
+          "text": "7",
         }
       ],
       isRequired: true,
@@ -472,37 +472,37 @@ export const surveyJson = {
         {
           "value": "Esportivo",
           "imageLink": "/images/9/Imagem1.png",
-          "text": "Esportivo - 1",
+          "text": "1",
         },
         {
           "value": "Elegante",
           "imageLink": "/images/9/Imagem2.png",
-          "text": "Elegante - 2",
+          "text": "2",
         },
         {
           "value": "Romântico",
           "imageLink": "/images/9/Imagem3.png",
-          "text": "Romântico - 3",
+          "text": "3",
         },
         {
           "value": "Sexy",
           "imageLink": "/images/9/Imagem4.png",
-          "text": "Sexy - 4",
+          "text": "4",
         },
         {
           "value": "Dramático",
           "imageLink": "/images/9/Imagem5.png",
-          "text": "Dramático - 5",
+          "text": "5",
         },
         {
           "value": "Tradicional",
           "imageLink": "/images/9/Imagem6.png",
-          "text": "Tradicional - 6",
+          "text": "6",
         },
         {
           "value": "Criativo",
           "imageLink": "/images/9/Imagem7.png",
-          "text": "Criativo - 7",
+          "text": "7",
         }
       ],
       "showLabel": true,
