@@ -10,13 +10,13 @@ export const surveyJson = {
       title: "DESCREVA SUA PERSONALIDADE",
       type: "radiogroup",
       choices: [
-        { value: "Esportivo", text: "Exótica, aventureira, inovadora, original, artística, imaginativa" },
-        { value: "Elegante", text: "Conservadora, séria, organizada, sistemática, eficiente, confiável" },
-        { value: "Romântico", text: "Sofisticada, moderna, firme, distante, urbana, autoconfiante" },
+        { value: "Esportivo", text: "Informal, espontânea, ativa, alegre, energética, divertida, despretensiosa" },
+        { value: "Elegante", text: "Exigente, refinada, bem-sucedida, reservada, educada, preparada, perspicaz" },
+        { value: "Romântico", text: "Feminina, meiga, delicada, carinhosa, gentil, sensível, romântica" },
         { value: "Sexy", text: "Glamorosa, sensual, ousada, magnética, provocante, atraente" },
-        { value: "Dramático", text: "Feminina, meiga, delicada, carinhosa, gentil, sensível, romântica" },
-        { value: "Tradicional", text: "Exigente, refinada, bem-sucedida, reservada, educada, preparada, perspicaz" },
-        { value: "Criativo", text: "Informal, espontânea, ativa, alegre, energética, divertida, despretensiosa" }
+        { value: "Dramático", text: "Sofisticada, moderna, firme, distante, urbana, autoconfiante" },
+        { value: "Tradicional", text: "Conservadora, séria, organizada, sistemática, eficiente, confiável" },
+        { value: "Criativo", text: "Exótica, aventureira, inovadora, original, artística, imaginativa" }
       ],
       isRequired: true
     }]
