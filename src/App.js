@@ -34,37 +34,41 @@ function App() {
 
   useEffect(() => {
     if (surveyResults) {
-      const chartData = chartLabels.map((label, index) => {
-        let count = 0;
-        for (let questionName in surveyResults) {
-          const value = surveyResults[questionName];
-          if (value === label) {
-            count++;
-          }
-        }
-        return {
-          label: label,
-          data: [count],
-          backgroundColor: chartColors[index % chartColors.length],
-          borderColor: chartColors[index % chartColors.length],
-          borderWidth: 1,
-        };
-      });
-      setChartData({
-        labels: [''],
-        datasets: chartData,
-      });
+      const chartData = {
+        labels: chartLabels,
+        datasets: [
+          {
+            label: 'Dados das Respostas',
+            data: chartLabels.map((label, index) => {
+              let count = 0;
+              for (let questionName in surveyResults) {
+                const value = surveyResults[questionName];
+                if (Array.isArray(value) && value.includes(label)) {
+                  count++;
+                } else if (value === label) {
+                  count++;
+                }
+              }
+              return count;
+            }),
+            backgroundColor: chartColors,
+            borderColor: chartColors,
+            borderWidth: 1,
+          },
+        ],
+      };      
+      setChartData({ labels: chartLabels, ...chartData });
     }
-  }, [surveyResults]);
+  }, [surveyResults]);  
 
   useEffect(() => {
-    if (chartData && chartData.datasets) {
+    if (chartData) {
       const ctx = document.getElementById('survey-results-chart').getContext('2d');
       new Chart(ctx, {
         type: 'bar',
         data: chartData,
         options: {
-          maintainAspectRatio: false, // disable aspect ratio so chart can be responsive
+          maintainAspectRatio: false,
           scales: {
             y: {
               beginAtZero: true,
@@ -76,14 +80,10 @@ function App() {
             tooltip: {
               callbacks: {
                 label: function (context) {
-                  var label = chartData.labels[context.dataIndex];
+                  var label = chartData.datasets[context.datasetIndex].label;
                   var value = context.dataset.data[context.dataIndex];
-                  var count = value + ' response' + (value !== 1 ? 's' : '');
-                  if (context.dataset.hasOwnProperty('datasets')) {
-                    return label + ': ' + count;
-                  } else {
-                    return count;
-                  }
+                  var count = value + ' resposta' + (value !== 1 ? 's' : '');
+                  return label + ': ' + count;
                 }
               }
             }
@@ -91,7 +91,7 @@ function App() {
         }
       });
     }
-  }, [chartData]);
+  }, [chartData]);  
 
   const onComplete = (survey, options) => {
     setSurveyResults(survey.data);

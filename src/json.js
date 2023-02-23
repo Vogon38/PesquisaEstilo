@@ -8,7 +8,7 @@ export const surveyJson = {
     elements: [{
       name: "descreva-sua-personalidade",
       title: "DESCREVA SUA PERSONALIDADE",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "Informal, espontânea, ativa, alegre, energética, divertida, despretensiosa" },
         { value: "Elegante", text: "Exigente, refinada, bem-sucedida, reservada, educada, preparada, perspicaz" },
@@ -18,13 +18,14 @@ export const surveyJson = {
         { value: "Tradicional", text: "Conservadora, séria, organizada, sistemática, eficiente, confiável" },
         { value: "Criativo", text: "Exótica, aventureira, inovadora, original, artística, imaginativa" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   }, {
     elements: [{
       name: "roupa-preferida",
       title: "COMO É A SUA ROUPA PREFERIDA?",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "Roupas confortáveis, práticas de usar e cuidar" },
         { value: "Elegante", text: "Roupas discretas mas com toques refinados" },
@@ -34,13 +35,14 @@ export const surveyJson = {
         { value: "Tradicional", text: "Roupas discretas que passem desapercebidas" },
         { value: "Criativo", text: "“Mix” na hora de se vestir, roupas de brechó" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   }, {
     elements: [{
       name: "caimento-ideal",
       title: "QUAL É O CAIMENTO IDEAL DAS SUAS ROUPAS?",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "A roupa precisa ser solta no corpo, tenho que me movimentar confortavelmente" },
         { value: "Elegante", text: "O caimento das roupas deve ser perfeito, como se fosse feito sob medida" },
@@ -50,7 +52,8 @@ export const surveyJson = {
         { value: "Tradicional", text: "Gosto de roupas com caimento clássico, linhas retas e discretas" },
         { value: "Criativo", text: "Gosto de peças desestruturadas, assimétricas com caimento diferente" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   },
   {
@@ -95,10 +98,15 @@ export const surveyJson = {
           text: "Mistura de cores intensas"
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }]
   },
   {
@@ -143,16 +151,21 @@ export const surveyJson = {
           text: "Chinesas e mix de estampas"
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }],
   }, {
     elements: [{
       name: "detalhes-adora",
       title: "QUAIS DETALHES VOCÊ ADORA?",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "Gosto de roupas sem detalhes. Sou muito básica para vestir" },
         { value: "Elegante", text: "Gosto de detalhes sofisticados que dão um ar refinado para a roupa" },
@@ -162,13 +175,14 @@ export const surveyJson = {
         { value: "Tradicional", text: "Prefiro detalhes discretos" },
         { value: "Criativo", text: "Uso detalhes diferentes do padrão" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   }, {
     elements: [{
       name: "estilo-preferido",
       title: "QUAL O SEU ESTILO DE ROUPA PREFERIDO?",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "Gosto do básico, confortável, prático e às vezes com uma pegada rústica" },
         { value: "Elegante", text: "Adoro peças clean, clássicas mas sofisticadas. Menos é mais!" },
@@ -178,13 +192,14 @@ export const surveyJson = {
         { value: "Tradicional", text: "Tenho muitas roupas formais e tradicionais. Elas são atemporais" },
         { value: "Criativo", text: "Gosto de roupas diferentes e pronto!" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   }, {
     elements: [{
       name: "compras",
       title: "COMO GOSTA DE FAZER SUAS COMPRAS?",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "Compro quando preciso, não gosto de perder tempo, gosto de facilidades, detesto provar muitas roupas" },
         { value: "Elegante", text: "Compro pensando em atualizar o que eu já tenho, gosto de qualidade e atualidade" },
@@ -194,13 +209,14 @@ export const surveyJson = {
         { value: "Tradicional", text: "Faço compras planejadas, gosto de qualidade e não ligo pra moda" },
         { value: "Criativo", text: "Adoro lugares alternativos, brechós, feiras de artesanatos, pois adoro o incomum" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   }, {
     elements: [{
       name: "tecidos",
       title: "VOCÊ ESCOLHE CERTOS TECIDOS PORQUE ELES",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "São fáceis de cuidar" },
         { value: "Elegante", text: "São sofisticados" },
@@ -210,13 +226,14 @@ export const surveyJson = {
         { value: "Tradicional", text: "São de qualidade" },
         { value: "Criativo", text: "São interessantes, diferentes" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
   }, {
     elements: [{
       name: "sapatos",
       title: "COMO SÃO SEUS SAPATOS PREFERIDOS?",
-      type: "radiogroup",
+      type: "checkbox",
       choices: [
         { value: "Esportivo", text: "São essencialmente confortáveis" },
         { value: "Elegante", text: "São essencialmente sofisticados" },
@@ -226,9 +243,10 @@ export const surveyJson = {
         { value: "Tradicional", text: "São essencialmente duráveis" },
         { value: "Criativo", text: "São essencialmente diferentes" }
       ],
-      isRequired: true
+      "isRequired": true,
+      "maxSelectedChoices": 2
     }]
-   }, {
+  }, {
     elements: [{
       "name": "calcas-preferidas",
       "title": "QUAL VOCÊ ADORA?",
@@ -270,10 +288,15 @@ export const surveyJson = {
           "text": "7",
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }]
   }, {
     elements: [{
@@ -317,10 +340,15 @@ export const surveyJson = {
           "text": "7",
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }]
   }, {
     elements: [{
@@ -364,10 +392,15 @@ export const surveyJson = {
           "text": "7",
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }]
   }, {
     elements: [{
@@ -411,10 +444,15 @@ export const surveyJson = {
           "text": "7",
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }]
   }, {
     elements: [{
@@ -458,10 +496,15 @@ export const surveyJson = {
           "text": "7",
         }
       ],
-      isRequired: true,
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }]
   }, {
     elements: [{
@@ -505,11 +548,17 @@ export const surveyJson = {
           "text": "7",
         }
       ],
+      "isRequired": true,
       "showLabel": true,
       "colCount": 2,
-      "multiSelect": false
+      "multiSelect": true,
+      "validators": [{
+        "type": "answercount",
+        "minCount": 1,
+        "maxCount": 2
+      }],
     }],
-    isRequired: true,
+    "isRequired": true,
   }],
   showQuestionNumbers: "on",
   pageNextText: "Seguinte",
