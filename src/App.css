@@ -6,7 +6,47 @@ p {
   white-space: pre-line;
 }
 
-.chart-container canvas {
-  width: 100%;
-  height: auto;
+#survey-results-chart {
+  height: 300px;
+}
+
+.chart-container {
+  height: 500px; /* Or any other fixed height you prefer */
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  padding-left: 25px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 7px;
+}
+
+.button-container button {
+  color: #000000;
+  background-color: transparent;
+  border: 1px solid #000000;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sd-container-modern {
+  margin-bottom: 0 !important;
+  }
+
+.sd-completedpage {
+  height: 100px;
+}
+
+.sd-completedpage:before {
+  height: calc(5 * var(--base-unit, 8px));
+}
+
+.sd-completedpage:after {
+  height: calc(5 * var(--base-unit, 8px));
 }

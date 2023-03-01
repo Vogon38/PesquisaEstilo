@@ -1,10 +1,12 @@
+import 'survey-core/defaultV2.min.css';
+import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { Survey } from 'survey-react-ui';
 import { Chart } from 'chart.js/auto';
-import 'survey-core/defaultV2.min.css';
-import './App.css';
 import { Model } from 'survey-core';
 import { surveyJson } from './json.js';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const chartLabels = ["Esportivo", "Elegante", "Romântico", "Sexy", "Dramático", "Tradicional", "Criativo"];
 const chartColors = ["#4dc9f6", "#f67019", "#f53794", "#537bc4", "#acc236", "#166a8f", "#00a950"];
@@ -13,6 +15,7 @@ function App() {
   const survey = useRef(new Model(surveyJson)).current;
   const [surveyResults, setSurveyResults] = useState(null);
   const [chartData, setChartData] = useState(null);
+  const chartRef = useRef(null);
 
   useEffect(() => {
     // Load Chart.js library
@@ -73,7 +76,8 @@ function App() {
             y: {
               beginAtZero: true,
               stepSize: 1,
-              precision: 0
+              precision: 0,
+              max: 16,
             }
           },
           plugins: {
@@ -82,7 +86,7 @@ function App() {
                 label: function (context) {
                   var label = chartData.datasets[context.datasetIndex].label;
                   var value = context.dataset.data[context.dataIndex];
-                  var count = value + ' resposta' + (value !== 1 ? 's' : '');
+                  var count = value + ' escolha' + (value !== 1 ? 's' : '');
                   return label + ': ' + count;
                 }
               }
@@ -97,16 +101,70 @@ function App() {
     setSurveyResults(survey.data);
   };
 
+  const downloadPDF = () => {
+    if (!chartRef.current) {
+      console.log("Error: chart ref is not available.");
+      return;
+    }
+  
+    // Get current date for footer
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+  
+    html2canvas(chartRef.current, {scale: 3}).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('landscape', 'pt', 'a4');
+      const width = pdf.internal.pageSize.getWidth();
+      const height = pdf.internal.pageSize.getHeight();
+  
+      // Add header
+      pdf.setFontSize(26);
+      pdf.setTextColor("#2b2d42");
+      pdf.setFont("helvetica", "bold")
+      pdf.text("Resultado da Pesquisa de Estilo", width / 2, 60, { align: "center" });
+  
+      // Add footer
+      const footerY = pdf.internal.pageSize.getHeight() - 20;
+      pdf.setFontSize(10);
+      pdf.setTextColor("#777");
+      const footerText = `Copyright © ${currentYear} - Andressa Sevegnani`;
+      pdf.text(footerText, 40, footerY, { align: "left" });
+      pdf.text("1", width - 40, footerY, { align: "right" });
+  
+      // Calculate the new width and height
+      const scaleFactor = 0.8;
+      const newWidth = (width - 80) * scaleFactor;
+      const newHeight = (height - 190) * scaleFactor;
+  
+      // Calculate the new x-coordinate and y-coordinate
+      const x = (width - newWidth) / 2;
+      const y = (height - newHeight) / 2;
+  
+      // Add the chart image with the new width, height, x-coordinate, and y-coordinate
+      pdf.addImage(imgData, 'PNG', x, y, newWidth, newHeight);
+  
+      // Download PDF
+      pdf.save('pesquisa_de_estilo.pdf');
+    });
+  };  
+
   return (
-    <>
-      <Survey model={survey} onComplete={onComplete} />
-      {chartData && (
-        <div className="chart-container">
-          <canvas id="survey-results-chart"></canvas>
-        </div>
-      )}
-    </>
-  );
-}
+    <div className="App">
+      <div className="survey-container">
+        <Survey model={survey} onComplete={onComplete} />
+      </div>
+      <div className="chart-container">
+        {chartData && (
+          <>
+            <div className="button-container">
+              <button onClick={downloadPDF}>Download</button>
+            </div>
+            <canvas id="survey-results-chart" ref={chartRef} crossOrigin="anonymous"></canvas>
+          </>
+        )}
+      </div>
+    </div>
+  );  
+}  
 
 export default App;
