@@ -1,9 +1,9 @@
-## Development server
+## Description
 
-Run the app in the development mode:
+This is the PesquisaEstilo_AndressaS web application. It is a React component that renders a survey using the survey-react-ui library, collects user responses, and generates a chart based on the results.
+
+Run the app:
 
 ```cmd
 yarn start
 ```
-
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.
