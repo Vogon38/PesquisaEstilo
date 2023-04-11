@@ -1,7 +1,7 @@
-## Description
+## Style Quiz App
+This is a React app that implements a style quiz. The quiz consists of a series of questions, each with multiple possible answers. At the end of the quiz, the user's personality type is displayed based on their answers.
 
-This is the PesquisaEstilo_AndressaS web application. It is a React component that renders a survey using the survey-react-ui library, collects user responses, and generates a chart based on the results.
-
+yarn start
 Run the app:
 
 ```cmd
